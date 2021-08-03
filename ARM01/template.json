@@ -3,7 +3,7 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         "virtualNetworks_Network1_name": {
-            "defaultValue": "Network1",
+            "defaultValue": "Network2",
             "type": "String"
         }
     },
@@ -13,7 +13,7 @@
             "type": "Microsoft.Network/virtualNetworks",
             "apiVersion": "2020-11-01",
             "name": "[parameters('virtualNetworks_Network1_name')]",
-            "location": "australiasoutheast",
+            "location": "useast",
             "tags": {
                 "Project": "Test",
                 "Author": "Karthik"
@@ -21,14 +21,14 @@
             "properties": {
                 "addressSpace": {
                     "addressPrefixes": [
-                        "10.0.0.0/16"
+                        "192.168.0.0/16"
                     ]
                 },
                 "subnets": [
                     {
-                        "name": "default",
+                        "name": "subnet1",
                         "properties": {
-                            "addressPrefix": "10.0.0.0/24",
+                            "addressPrefix": "192.168.1.0/24",
                             "delegations": [],
                             "privateEndpointNetworkPolicies": "Enabled",
                             "privateLinkServiceNetworkPolicies": "Enabled"
@@ -47,7 +47,7 @@
                 "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworks_Network1_name'))]"
             ],
             "properties": {
-                "addressPrefix": "10.0.0.0/24",
+                "addressPrefix": "192.168.1.0/24",
                 "delegations": [],
                 "privateEndpointNetworkPolicies": "Enabled",
                 "privateLinkServiceNetworkPolicies": "Enabled"
